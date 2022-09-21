@@ -22,5 +22,6 @@
   "homepage": "https://github.com/langliu/a-ui#readme",
   "workspaces": [
     "packages/a-components"
-  ]
+  ],
+  "type": "module"
 }

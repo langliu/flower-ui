@@ -1,0 +1,13 @@
+:host {
+  display: inline-block;
+}
+
+.a-button {
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  background-color: #00bcd4;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}

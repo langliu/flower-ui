@@ -1,3 +1,4 @@
+import { resolve } from 'path';
 import { Config } from '@stencil/core';
 
 export const config: Config = {
@@ -18,4 +19,5 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
+  globalStyle: resolve('../a-themes/src/index.css'),
 };

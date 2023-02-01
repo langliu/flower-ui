@@ -7,7 +7,65 @@
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface AButton {
-        "title": string;
+        /**
+          * 将按钮宽度调整为其父宽度的选项
+         */
+        "block"?: boolean;
+        /**
+          * 设置危险按钮
+         */
+        "danger"?: boolean;
+        /**
+          * 按钮失效状态
+         */
+        "disabled"?: boolean;
+        /**
+          * 幽灵属性，使按钮背景透明
+         */
+        "ghost"?: boolean;
+        /**
+          * 点击跳转的地址，指定此属性 button 的行为和 a 链接一致
+         */
+        "href"?: string;
+        /**
+          * 设置 button 原生的 type 值，可选值请参考 HTML 标准
+         */
+        "htmlType"?: string;
+        /**
+          * 设置按钮形状
+         */
+        "shape"?: 'default' | 'circle' | 'round';
+        /**
+          * 设置按钮大小
+         */
+        "size"?: 'large' | 'middle' | 'small';
+        /**
+          * 相当于 a 链接的 target 属性，href 存在时生效
+         */
+        "target"?: string;
+        /**
+          * 设置按钮类型
+         */
+        "type"?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+    }
+    interface AImage {
+        /**
+          * 错误文案
+         */
+        "errorText"?: string;
+        /**
+          * 图片填充方式
+         */
+        "fit": 'none' | 'contain' | 'cover' | 'fill' | 'scale-down';
+        /**
+          * 是否开启懒加载
+         */
+        "lazy": boolean;
+        /**
+          * 加载文案
+         */
+        "placeholder"?: string;
+        "src": string;
     }
     interface MyComponent {
         /**
@@ -31,6 +89,12 @@ declare global {
         prototype: HTMLAButtonElement;
         new (): HTMLAButtonElement;
     };
+    interface HTMLAImageElement extends Components.AImage, HTMLStencilElement {
+    }
+    var HTMLAImageElement: {
+        prototype: HTMLAImageElement;
+        new (): HTMLAImageElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -39,12 +103,71 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "a-button": HTMLAButtonElement;
+        "a-image": HTMLAImageElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
     interface AButton {
-        "title"?: string;
+        /**
+          * 将按钮宽度调整为其父宽度的选项
+         */
+        "block"?: boolean;
+        /**
+          * 设置危险按钮
+         */
+        "danger"?: boolean;
+        /**
+          * 按钮失效状态
+         */
+        "disabled"?: boolean;
+        /**
+          * 幽灵属性，使按钮背景透明
+         */
+        "ghost"?: boolean;
+        /**
+          * 点击跳转的地址，指定此属性 button 的行为和 a 链接一致
+         */
+        "href"?: string;
+        /**
+          * 设置 button 原生的 type 值，可选值请参考 HTML 标准
+         */
+        "htmlType"?: string;
+        /**
+          * 设置按钮形状
+         */
+        "shape"?: 'default' | 'circle' | 'round';
+        /**
+          * 设置按钮大小
+         */
+        "size"?: 'large' | 'middle' | 'small';
+        /**
+          * 相当于 a 链接的 target 属性，href 存在时生效
+         */
+        "target"?: string;
+        /**
+          * 设置按钮类型
+         */
+        "type"?: 'primary' | 'ghost' | 'dashed' | 'link' | 'text' | 'default';
+    }
+    interface AImage {
+        /**
+          * 错误文案
+         */
+        "errorText"?: string;
+        /**
+          * 图片填充方式
+         */
+        "fit"?: 'none' | 'contain' | 'cover' | 'fill' | 'scale-down';
+        /**
+          * 是否开启懒加载
+         */
+        "lazy"?: boolean;
+        /**
+          * 加载文案
+         */
+        "placeholder"?: string;
+        "src"?: string;
     }
     interface MyComponent {
         /**
@@ -62,6 +185,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "a-button": AButton;
+        "a-image": AImage;
         "my-component": MyComponent;
     }
 }
@@ -70,6 +194,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "a-button": LocalJSX.AButton & JSXBase.HTMLAttributes<HTMLAButtonElement>;
+            "a-image": LocalJSX.AImage & JSXBase.HTMLAttributes<HTMLAImageElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

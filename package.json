@@ -23,5 +23,8 @@
   "workspaces": [
     "packages/a-components"
   ],
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "classnames": "^2.3.2"
+  }
 }

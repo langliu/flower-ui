@@ -1,4 +1,7 @@
-import { Component, Host, h, Prop, Listen, State } from '@stencil/core';
+import { Component, Element, Host, h, Prop, Listen, State } from '@stencil/core';
+import { throttle } from 'lodash-es';
+
+import { isInContainer } from '~/utils/utils';
 
 @Component({
   tag: 'a-image',
@@ -24,7 +27,11 @@ export class AImage {
    */
   @Prop() errorText?: string;
   @State() show: boolean = false;
-  
+  @Element() element: HTMLElement;
+
+  private _scrollContainer: HTMLElement | (Window & typeof globalThis);
+  private _handleLazyLoad: any;
+
   handleLazyLoad() {
     if (this.show) return;
     if (isInContainer(this.element, this._scrollContainer as HTMLElement)) {
@@ -36,6 +43,10 @@ export class AImage {
   handleScroll() {
     if (!this.lazy) return;
     this._handleLazyLoad();
+  }
+
+  componentWillLoad() {
+    this._handleLazyLoad = throttle(this.handleLazyLoad, 200);
   }
 
   render() {

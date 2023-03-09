@@ -20,24 +20,48 @@
   ],
   "scripts": {
     "build": "stencil build --docs",
+    "build:watch": "stencil build --watch",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate"
+    "generate": "stencil generate",
+    "docs": "dumi dev",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@stencil/core": "^3.1.0",
     "classnames": "^2.3.2",
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.21",
+    "clsx": "^1.2.1",
+    "class-variance-authority": "0.4.0",
+    "tailwind-merge": "^1.10.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-docs": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/builder-webpack4": "^6.5.16",
+    "@storybook/cli": "^6.5.16",
+    "@storybook/html": "^6.5.16",
+    "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
     "@types/lodash-es": "^4.17.6",
+    "babel-loader": "^8.3.0",
     "jest": "^27.4.5",
     "jest-cli": "^27.4.5",
     "puppeteer": "^19.7.3",
     "stencil-tailwind-plugin": "^1.7.0",
-    "tailwindcss": "^3.2.7"
+    "storybook-dark-mode": "^2.1.1",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.5"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "16.19.1"
+  }
 }

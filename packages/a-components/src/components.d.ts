@@ -67,6 +67,11 @@ export namespace Components {
         "placeholder"?: string;
         "src": string;
     }
+    interface FlowerAvatar {
+        "alt"?: string;
+        "size"?: 'default' | 'small' | 'large';
+        "src": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -95,6 +100,12 @@ declare global {
         prototype: HTMLAImageElement;
         new (): HTMLAImageElement;
     };
+    interface HTMLFlowerAvatarElement extends Components.FlowerAvatar, HTMLStencilElement {
+    }
+    var HTMLFlowerAvatarElement: {
+        prototype: HTMLFlowerAvatarElement;
+        new (): HTMLFlowerAvatarElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -104,6 +115,7 @@ declare global {
     interface HTMLElementTagNameMap {
         "a-button": HTMLAButtonElement;
         "a-image": HTMLAImageElement;
+        "flower-avatar": HTMLFlowerAvatarElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -169,6 +181,11 @@ declare namespace LocalJSX {
         "placeholder"?: string;
         "src"?: string;
     }
+    interface FlowerAvatar {
+        "alt"?: string;
+        "size"?: 'default' | 'small' | 'large';
+        "src"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -186,6 +203,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "a-button": AButton;
         "a-image": AImage;
+        "flower-avatar": FlowerAvatar;
         "my-component": MyComponent;
     }
 }
@@ -195,6 +213,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "a-button": LocalJSX.AButton & JSXBase.HTMLAttributes<HTMLAButtonElement>;
             "a-image": LocalJSX.AImage & JSXBase.HTMLAttributes<HTMLAImageElement>;
+            "flower-avatar": LocalJSX.FlowerAvatar & JSXBase.HTMLAttributes<HTMLFlowerAvatarElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

@@ -1,10 +1,13 @@
-import { resolve } from 'path';
-import { Config } from '@stencil/core';
-import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
+// import { resolve } from 'path'
+import { Config } from '@stencil/core'
+import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin'
 
 export const config: Config = {
   namespace: 'a-components',
   plugins: [tailwind(), tailwindHMR()],
+  devServer: {
+    reloadStrategy: 'pageReload',
+  },
   outputTargets: [
     {
       type: 'dist',
@@ -21,5 +24,5 @@ export const config: Config = {
       serviceWorker: null, // disable service workers
     },
   ],
-  globalStyle: resolve('../a-themes/src/index.css'),
-};
+  // globalStyle: resolve('../a-themes/src/index.css'),
+}

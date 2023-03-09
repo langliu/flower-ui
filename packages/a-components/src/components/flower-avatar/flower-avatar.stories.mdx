@@ -1,0 +1,72 @@
+import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
+
+<Meta
+  title="Components/Flower-Avatar"
+  argTypes={{
+    src: {
+      name: 'Avatar Src',
+      description: '头像',
+      control: {
+        type: 'text',
+      },
+      table: {
+        type: {
+          summary: false,
+          detail: 'something',
+        },
+      },
+    },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'small', 'large'],
+      defaultValue: 'default',
+    },
+    alt: {
+      control: {
+        type: 'text',
+      },
+    },
+  }}
+/>
+
+export const Default = args => `<flower-avatar
+  size="${args.size}"
+  alt="${args.alt}"
+  src="${args.src}"
+></flower-avatar>`
+
+<Story
+  name="Default"
+  args={{
+    src: 'https://github.com/shadcn.png',
+    alt: 'default',
+  }}
+>
+  {Default.bind({})}
+</Story>
+
+<Story
+  name="Large"
+  args={{
+    src: 'https://github.com/shadcn.png',
+    alt: 'default',
+    size: 'large',
+  }}
+>
+  {Default.bind({})}
+</Story>
+
+<Story
+  name="Small"
+  args={{
+    src: 'https://github.com/shadcn.png',
+    alt: 'default',
+    size: 'small',
+  }}
+>
+  {Default.bind({})}
+</Story>
+
+<ArgsTable story="Default" />

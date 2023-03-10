@@ -26,6 +26,7 @@ jobs:
 
       - name: Storybook Build
         run: |
+          pnpm --filter a-components build
           pnpm --filter a-components build-storybook
 
       - name: Deploy Storybook Static Page

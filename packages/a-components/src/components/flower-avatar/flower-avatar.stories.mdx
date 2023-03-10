@@ -4,7 +4,6 @@ import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
   title="Components/Flower-Avatar"
   argTypes={{
     src: {
-      name: 'Avatar Src',
       description: '头像',
       control: {
         type: 'text',
@@ -15,6 +14,9 @@ import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
           detail: 'something',
         },
       },
+      type: {
+        required: true,
+      },
     },
     size: {
       control: {
@@ -22,8 +24,19 @@ import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
       },
       options: ['default', 'small', 'large'],
       defaultValue: 'default',
+      table: {
+        defaultValue: {
+          summary: 'default',
+          detail: '默认头像大小',
+        },
+      },
     },
     alt: {
+      description: '规定图像的替代文本',
+      defaultValue: '',
+    },
+    fallback: {
+      description: '图像加载失败填充',
       control: {
         type: 'text',
       },
@@ -35,38 +48,65 @@ export const Default = args => `<flower-avatar
   size="${args.size}"
   alt="${args.alt}"
   src="${args.src}"
+  fallback="${args.fallback}"
 ></flower-avatar>`
 
-<Story
-  name="Default"
-  args={{
-    src: 'https://github.com/shadcn.png',
-    alt: 'default',
-  }}
->
-  {Default.bind({})}
-</Story>
-
-<Story
-  name="Large"
-  args={{
-    src: 'https://github.com/shadcn.png',
-    alt: 'default',
-    size: 'large',
-  }}
->
-  {Default.bind({})}
-</Story>
-
-<Story
-  name="Small"
-  args={{
-    src: 'https://github.com/shadcn.png',
-    alt: 'default',
-    size: 'small',
-  }}
->
-  {Default.bind({})}
-</Story>
+<Canvas columns={2} withToolbar>
+  <Story
+    name="Default"
+    args={{
+      src: 'https://github.com/shadcn.png',
+      alt: 'default',
+    }}
+  >
+    {Default.bind({})}
+  </Story>
+</Canvas>
 
 <ArgsTable story="Default" />
+
+### 小头像
+
+<Canvas columns={2} withToolbar>
+  <Story
+    name="Small"
+    args={{
+      src: 'https://github.com/shadcn.png',
+      alt: 'default',
+      size: 'small',
+    }}
+  >
+    {Default.bind({})}
+  </Story>
+</Canvas>
+
+### 大头像
+
+<Canvas columns={2} withToolbar>
+  <Story
+    name="Large"
+    args={{
+      src: 'https://github.com/shadcn.png',
+      alt: 'default',
+      size: 'large',
+    }}
+  >
+    {Default.bind({})}
+  </Story>
+</Canvas>
+
+### 图像加载失败默认填充
+
+<Canvas columns={2} withToolbar>
+  <Story
+    name="Fallback"
+    args={{
+      src: 'https://github.com/shad',
+      alt: 'default',
+      size: 'large',
+      fallback: 'A',
+    }}
+  >
+    {Default.bind({})}
+  </Story>
+</Canvas>

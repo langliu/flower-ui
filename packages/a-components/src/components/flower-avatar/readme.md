@@ -7,11 +7,12 @@
 
 ## Properties
 
-| Property | Attribute | Description | Type                              | Default     |
-| -------- | --------- | ----------- | --------------------------------- | ----------- |
-| `alt`    | `alt`     |             | `string`                          | `undefined` |
-| `size`   | `size`    |             | `"default" \| "large" \| "small"` | `'default'` |
-| `src`    | `src`     |             | `string`                          | `undefined` |
+| Property   | Attribute  | Description | Type                              | Default     |
+| ---------- | ---------- | ----------- | --------------------------------- | ----------- |
+| `alt`      | `alt`      |             | `string`                          | `undefined` |
+| `fallback` | `fallback` |             | `string`                          | `undefined` |
+| `size`     | `size`     |             | `"default" \| "large" \| "small"` | `'default'` |
+| `src`      | `src`      |             | `string`                          | `undefined` |
 
 
 ----------------------------------------------

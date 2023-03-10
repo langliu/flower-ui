@@ -8,4 +8,7 @@ module.exports = {
     'storybook-dark-mode',
   ],
   framework: '@storybook/html',
+  features: {
+    previewMdx2: true,
+  },
 }

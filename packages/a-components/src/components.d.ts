@@ -69,6 +69,7 @@ export namespace Components {
     }
     interface FlowerAvatar {
         "alt"?: string;
+        "fallback"?: string;
         "size"?: 'default' | 'small' | 'large';
         "src": string;
     }
@@ -183,6 +184,7 @@ declare namespace LocalJSX {
     }
     interface FlowerAvatar {
         "alt"?: string;
+        "fallback"?: string;
         "size"?: 'default' | 'small' | 'large';
         "src"?: string;
     }

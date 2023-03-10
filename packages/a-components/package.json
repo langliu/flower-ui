@@ -48,6 +48,7 @@
     "@storybook/cli": "^6.5.16",
     "@storybook/html": "^6.5.16",
     "@storybook/manager-webpack4": "^6.5.16",
+    "@storybook/mdx2-csf": "^0.0.4",
     "@storybook/testing-library": "^0.0.13",
     "@types/jest": "^27.0.3",
     "@types/lodash-es": "^4.17.6",

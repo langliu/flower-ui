@@ -79,6 +79,15 @@ export namespace Components {
         "size": 'small' | 'default' | 'large';
         "variant": 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
     }
+    interface FlowerInput {
+        "class"?: string;
+        "disabled"?: boolean;
+        "maxlength"?: number;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "type"?: string;
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -119,6 +128,12 @@ declare global {
         prototype: HTMLFlowerButtonElement;
         new (): HTMLFlowerButtonElement;
     };
+    interface HTMLFlowerInputElement extends Components.FlowerInput, HTMLStencilElement {
+    }
+    var HTMLFlowerInputElement: {
+        prototype: HTMLFlowerInputElement;
+        new (): HTMLFlowerInputElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -130,6 +145,7 @@ declare global {
         "a-image": HTMLAImageElement;
         "flower-avatar": HTMLFlowerAvatarElement;
         "flower-button": HTMLFlowerButtonElement;
+        "flower-input": HTMLFlowerInputElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -207,6 +223,15 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'default' | 'large';
         "variant"?: 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
     }
+    interface FlowerInput {
+        "class"?: string;
+        "disabled"?: boolean;
+        "maxlength"?: number;
+        "placeholder"?: string;
+        "readonly"?: boolean;
+        "type"?: string;
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -226,6 +251,7 @@ declare namespace LocalJSX {
         "a-image": AImage;
         "flower-avatar": FlowerAvatar;
         "flower-button": FlowerButton;
+        "flower-input": FlowerInput;
         "my-component": MyComponent;
     }
 }
@@ -237,6 +263,7 @@ declare module "@stencil/core" {
             "a-image": LocalJSX.AImage & JSXBase.HTMLAttributes<HTMLAImageElement>;
             "flower-avatar": LocalJSX.FlowerAvatar & JSXBase.HTMLAttributes<HTMLFlowerAvatarElement>;
             "flower-button": LocalJSX.FlowerButton & JSXBase.HTMLAttributes<HTMLFlowerButtonElement>;
+            "flower-input": LocalJSX.FlowerInput & JSXBase.HTMLAttributes<HTMLFlowerInputElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

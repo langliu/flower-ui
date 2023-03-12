@@ -1,0 +1,67 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+<Meta
+  title="Components/Flower-Button"
+  argTypes={{
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'small', 'large'],
+      defaultValue: 'default',
+      table: {
+        defaultValue: {
+          summary: 'default',
+          detail: '默认大小',
+        },
+      },
+      description: '按钮大小',
+    },
+    variant: {
+      control: {
+        type: 'select',
+      },
+      options: ['default', 'destructive', 'outline', 'subtle', 'ghost', 'link'],
+      defaultValue: 'default',
+      table: {
+        defaultValue: {
+          summary: 'default',
+          detail: '默认类型',
+        },
+      },
+      description: '按钮类型',
+    },
+    block: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      table: {
+        defaultValue: {
+          summary: 'false',
+        },
+      },
+      description: '按钮是否填满父级宽度'
+    },
+  }}
+/>
+
+export const Template = args => `<flower-button
+  size="${args.size}"
+  variant="${args.variant}"
+  block="${args.block}"
+>Click Me!</flower-button>`
+
+<Canvas columns={2} withToolbar>
+  <Story
+    name="Default"
+    args={{
+      variant: 'default',
+      size: 'default',
+    }}
+  >
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

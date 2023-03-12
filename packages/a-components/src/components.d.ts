@@ -73,6 +73,12 @@ export namespace Components {
         "size"?: 'default' | 'small' | 'large';
         "src": string;
     }
+    interface FlowerButton {
+        "block"?: boolean;
+        "class"?: string;
+        "size": 'small' | 'default' | 'large';
+        "variant": 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
+    }
     interface MyComponent {
         /**
           * The first name
@@ -107,6 +113,12 @@ declare global {
         prototype: HTMLFlowerAvatarElement;
         new (): HTMLFlowerAvatarElement;
     };
+    interface HTMLFlowerButtonElement extends Components.FlowerButton, HTMLStencilElement {
+    }
+    var HTMLFlowerButtonElement: {
+        prototype: HTMLFlowerButtonElement;
+        new (): HTMLFlowerButtonElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -117,6 +129,7 @@ declare global {
         "a-button": HTMLAButtonElement;
         "a-image": HTMLAImageElement;
         "flower-avatar": HTMLFlowerAvatarElement;
+        "flower-button": HTMLFlowerButtonElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -188,6 +201,12 @@ declare namespace LocalJSX {
         "size"?: 'default' | 'small' | 'large';
         "src"?: string;
     }
+    interface FlowerButton {
+        "block"?: boolean;
+        "class"?: string;
+        "size"?: 'small' | 'default' | 'large';
+        "variant"?: 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
+    }
     interface MyComponent {
         /**
           * The first name
@@ -206,6 +225,7 @@ declare namespace LocalJSX {
         "a-button": AButton;
         "a-image": AImage;
         "flower-avatar": FlowerAvatar;
+        "flower-button": FlowerButton;
         "my-component": MyComponent;
     }
 }
@@ -216,6 +236,7 @@ declare module "@stencil/core" {
             "a-button": LocalJSX.AButton & JSXBase.HTMLAttributes<HTMLAButtonElement>;
             "a-image": LocalJSX.AImage & JSXBase.HTMLAttributes<HTMLAImageElement>;
             "flower-avatar": LocalJSX.FlowerAvatar & JSXBase.HTMLAttributes<HTMLFlowerAvatarElement>;
+            "flower-button": LocalJSX.FlowerButton & JSXBase.HTMLAttributes<HTMLFlowerButtonElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

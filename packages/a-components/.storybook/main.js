@@ -6,9 +6,16 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     'storybook-dark-mode',
+    '@storybook/addon-mdx-gfm',
   ],
-  framework: '@storybook/html',
-  features: {
-    previewMdx2: true,
+  framework: {
+    name: "@storybook/html-webpack5",
+    options: {}
   },
-}
+  features: {
+    previewMdx2: true
+  },
+  docs: {
+    autodocs: true
+  }
+};

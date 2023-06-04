@@ -1,0 +1,61 @@
+import { Meta, Canvas, Story, ArgsTable } from '@storybook/addon-docs'
+
+<Meta
+  title="Components/Flower-Dialog"
+  argTypes={{
+    value: {
+      control: {
+        type: 'text',
+      },
+      description: 'Input 的值',
+    },
+    placeholder: {
+      control: {
+        type: 'text',
+      },
+      defaultValue: '请输入',
+      description: '输入提醒文案',
+    },
+    disabled: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      description: '是否禁用输入',
+    },
+    maxLength: {
+      control: {
+        type: 'number',
+      },
+      description: '最多输入多少字符',
+    },
+    readonly: {
+      control: {
+        type: 'boolean',
+      },
+      defaultValue: false,
+      description: '把输入字段设置为只读',
+    },
+  }}
+/>
+
+export const Template = args => `<div>
+  <flower-button variant="subtle">打开</flower-button>
+  <flower-dialog
+    dialogId="dialog"
+    maxLength="${args.maxLength}"
+    disabled="${args.disabled}"
+    value="${args.value}"
+    placeholder="${args.placeholder}"
+    readonly="${args.readonly}"
+  >12312</flower-dialog>
+</div>
+`
+
+<Canvas withToolbar>
+  <Story name="Default" args={{}}>
+    {Template.bind({})}
+  </Story>
+</Canvas>
+
+<ArgsTable story="Default" />

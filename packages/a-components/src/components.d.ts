@@ -79,6 +79,9 @@ export namespace Components {
         "size": 'small' | 'default' | 'large';
         "variant": 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
     }
+    interface FlowerDialog {
+        "dialogId": string;
+    }
     interface FlowerInput {
         "class"?: string;
         "disabled"?: boolean;
@@ -136,6 +139,12 @@ declare global {
         prototype: HTMLFlowerButtonElement;
         new (): HTMLFlowerButtonElement;
     };
+    interface HTMLFlowerDialogElement extends Components.FlowerDialog, HTMLStencilElement {
+    }
+    var HTMLFlowerDialogElement: {
+        prototype: HTMLFlowerDialogElement;
+        new (): HTMLFlowerDialogElement;
+    };
     interface HTMLFlowerInputElement extends Components.FlowerInput, HTMLStencilElement {
     }
     var HTMLFlowerInputElement: {
@@ -159,6 +168,7 @@ declare global {
         "a-image": HTMLAImageElement;
         "flower-avatar": HTMLFlowerAvatarElement;
         "flower-button": HTMLFlowerButtonElement;
+        "flower-dialog": HTMLFlowerDialogElement;
         "flower-input": HTMLFlowerInputElement;
         "flower-textarea": HTMLFlowerTextareaElement;
         "my-component": HTMLMyComponentElement;
@@ -238,6 +248,9 @@ declare namespace LocalJSX {
         "size"?: 'small' | 'default' | 'large';
         "variant"?: 'default' | 'destructive' | 'outline' | 'subtle' | 'ghost' | 'link';
     }
+    interface FlowerDialog {
+        "dialogId"?: string;
+    }
     interface FlowerInput {
         "class"?: string;
         "disabled"?: boolean;
@@ -274,6 +287,7 @@ declare namespace LocalJSX {
         "a-image": AImage;
         "flower-avatar": FlowerAvatar;
         "flower-button": FlowerButton;
+        "flower-dialog": FlowerDialog;
         "flower-input": FlowerInput;
         "flower-textarea": FlowerTextarea;
         "my-component": MyComponent;
@@ -287,6 +301,7 @@ declare module "@stencil/core" {
             "a-image": LocalJSX.AImage & JSXBase.HTMLAttributes<HTMLAImageElement>;
             "flower-avatar": LocalJSX.FlowerAvatar & JSXBase.HTMLAttributes<HTMLFlowerAvatarElement>;
             "flower-button": LocalJSX.FlowerButton & JSXBase.HTMLAttributes<HTMLFlowerButtonElement>;
+            "flower-dialog": LocalJSX.FlowerDialog & JSXBase.HTMLAttributes<HTMLFlowerDialogElement>;
             "flower-input": LocalJSX.FlowerInput & JSXBase.HTMLAttributes<HTMLFlowerInputElement>;
             "flower-textarea": LocalJSX.FlowerTextarea & JSXBase.HTMLAttributes<HTMLFlowerTextareaElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;

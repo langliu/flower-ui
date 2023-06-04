@@ -42,12 +42,17 @@ export class FlowerAvatar {
 
   render() {
     const { src, size, alt, isLoadError, fallback, avatarVariants, handleError } = this
-    console.log('isLoadError', isLoadError, fallback)
+    console.log('isLoadError', isLoadError, fallback, size)
 
     return (
       <Host>
         {!isLoadError ? (
-          <img src={src} alt={alt} class={cn(avatarVariants({ size }))} onError={handleError} />
+          <img
+            src={src}
+            alt={alt}
+            class={cn(avatarVariants({ size }))}
+            onError={handleError}
+          />
         ) : (
           <span class={cn(avatarVariants({ size }))}>{fallback}</span>
         )}

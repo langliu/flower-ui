@@ -23,7 +23,6 @@ import { ArgsTable, Meta, Story, Canvas } from '@storybook/addon-docs'
         type: 'select',
       },
       options: ['default', 'small', 'large'],
-      defaultValue: 'default',
       table: {
         defaultValue: {
           summary: 'default',
@@ -51,12 +50,13 @@ export const Default = args => `<flower-avatar
   fallback="${args.fallback}"
 ></flower-avatar>`
 
-<Canvas columns={2} withToolbar>
+<Canvas withToolbar>
   <Story
     name="Default"
     args={{
       src: 'https://github.com/shadcn.png',
       alt: 'default',
+      size: 'default',
     }}
   >
     {Default.bind({})}
@@ -67,7 +67,9 @@ export const Default = args => `<flower-avatar
 
 ### 小头像
 
-<Canvas columns={2} withToolbar>
+<Canvas
+  withToolbar
+>
   <Story
     name="Small"
     args={{
@@ -82,7 +84,9 @@ export const Default = args => `<flower-avatar
 
 ### 大头像
 
-<Canvas columns={2} withToolbar>
+<Canvas
+  withToolbar
+>
   <Story
     name="Large"
     args={{
@@ -97,7 +101,10 @@ export const Default = args => `<flower-avatar
 
 ### 图像加载失败默认填充
 
-<Canvas columns={2} withToolbar>
+<Canvas
+  columns={2}
+  withToolbar
+>
   <Story
     name="Fallback"
     args={{

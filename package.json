@@ -21,13 +21,18 @@
   },
   "homepage": "https://github.com/langliu/a-ui#readme",
   "workspaces": [
-    "packages/a-components"
+    "packages/a-components",
+    "packages/flower-react"
   ],
   "type": "module",
   "dependencies": {
     "classnames": "^2.3.2"
   },
   "volta": {
-    "node": "16.19.1"
+    "node": "20.5.0",
+    "npm": "9.8.1"
+  },
+  "devDependencies": {
+    "rome": "12.1.3"
   }
 }

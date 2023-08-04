@@ -1,3 +1,4 @@
 packages:
   - "packages/a-components"
   - "packages/a-themes"
+  - "packages/flower-react"

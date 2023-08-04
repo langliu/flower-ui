@@ -1,12 +1,19 @@
 {
   "cSpell.words": [
     "clsx",
-    "dumi"
+    "dumi",
+    "tailwindcss"
   ],
   "tailwindCSS.experimental.classRegex": [
     [
       "cva\\(([^)]*)\\)",
       "[\"'`]([^\"'`]*).*?[\"'`]"
     ]
-  ]
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "rome.rome"
+  },
+  "editor.codeActionsOnSave": {
+    "source.organizeImports.rome": true
+  }
 }

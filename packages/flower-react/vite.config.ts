@@ -1,7 +1,7 @@
-import { resolve } from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-import tailwindcss from "tailwindcss";
+import { resolve } from 'path'
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from 'tailwindcss'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,18 +16,18 @@ export default defineConfig({
     cssCodeSplit: true,
     minify: false,
     lib: {
-      entry: resolve(__dirname, "src/index.ts"),
-      name: "@flower/react",
-      formats: ["es"],
-      fileName: "[name]",
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: '@flower/react',
+      formats: ['es'],
+      fileName: '[name]',
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ['react', 'react-dom'],
       // input: glob.sync("src/**/*.{ts,tsx}"),
       output: {
         globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
+          react: 'React',
+          'react-dom': 'ReactDOM',
         },
         // preserveModules: true,
         // entryFileNames: (entry) => {
@@ -49,7 +49,7 @@ export default defineConfig({
         // },
       },
     },
-    cssTarget: "chrome85",
+    cssTarget: 'chrome85',
     sourcemap: true,
   },
-});
+})

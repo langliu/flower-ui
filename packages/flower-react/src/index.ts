@@ -1,4 +1,7 @@
-import Button from "./components/Button";
-export type { ButtonProps } from "./components/Button";
+import Avatar from './components/Avatar'
+import Button from './components/Button'
 
-export { Button };
+export type { AvatarProps } from './components/Avatar'
+export type { ButtonProps } from './components/Button'
+
+export { Avatar, Button }

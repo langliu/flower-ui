@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import Button from './index'
+import Input from './index'
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-const meta: Meta<typeof Button> = {
-  title: 'Flower/Button',
-  component: Button,
+const meta: Meta<typeof Input> = {
+  title: 'Flower/Input',
+  component: Input,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'centered',
@@ -25,6 +25,7 @@ const meta: Meta<typeof Button> = {
       description: '设置按钮大小',
     },
     disabled: { control: 'boolean', description: '设置按钮失效状态', defaultValue: false },
+    placeholder: { control: 'text', description: '设置占位符', defaultValue: '请输入' },
   },
 }
 
@@ -39,9 +40,9 @@ export const Primary: Story = {
   },
 }
 
-export const Default: Story = {
+export const WithPrefix: Story = {
   args: {
-    children: 'Button',
+    prefix: 'Button',
   },
 }
 

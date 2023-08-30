@@ -13,19 +13,9 @@ const meta: Meta<typeof Input> = {
   tags: ['autodocs'],
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    type: {
-      control: 'select',
-      options: ['default', 'primary', 'text', 'link', 'dashed'],
-      defaultValue: 'default',
-    },
-    size: {
-      control: 'select',
-      options: ['large', 'middle', 'small'],
-      defaultValue: 'middle',
-      description: '设置按钮大小',
-    },
-    disabled: { control: 'boolean', description: '设置按钮失效状态', defaultValue: false },
+    disabled: { control: 'boolean', description: '设置输入框失效状态', defaultValue: false },
     placeholder: { control: 'text', description: '设置占位符', defaultValue: '请输入' },
+    prefix: { control: 'text', description: '设置前缀', defaultValue: '' },
   },
 }
 
@@ -34,30 +24,11 @@ type Story = StoryObj<typeof meta>
 
 // More on writing stories with args: https://storybook.js.org/docs/react/writing-stories/args
 export const Primary: Story = {
-  args: {
-    type: 'primary',
-    children: 'Button',
-  },
+  args: {},
 }
 
 export const WithPrefix: Story = {
   args: {
-    prefix: 'Button',
-  },
-}
-
-export const Large: Story = {
-  args: {
-    // size: "large",
-    children: 'Button',
-    type: 'link',
-  },
-}
-
-export const Small: Story = {
-  args: {
-    // size: "small",
-    children: 'Button',
-    type: 'dashed',
+    prefix: '$',
   },
 }

@@ -1,48 +1,54 @@
 import { FC, ReactNode } from 'react'
+import { cva } from 'class-variance-authority'
+import { twMerge } from 'tailwind-merge'
 
 type InputProps = {
   placeholder?: string
   prefix?: ReactNode
+  disabled?: boolean
+  id?: string
+  name?: string
 }
 
-const Example: FC<InputProps> = ({ placeholder, prefix }) => {
+const input = cva(
+  [
+    'block w-full rounded-md border-0 py-1.5  pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 flex-shrink',
+  ],
+  {
+    variants: {
+      size: {
+        default: 'h-10 py-2 px-4',
+        small: 'h-9 px-2 rounded-md',
+        large: 'h-11 px-8 rounded-md',
+      },
+      disabled: {
+        true: ['cursor-not-allowed'],
+      },
+    },
+    defaultVariants: {
+      size: 'default',
+    },
+  },
+)
+
+const Input: FC<InputProps> = ({ placeholder, prefix, disabled = false, id, name }) => {
   return (
-    <div>
-      <label htmlFor='price' className='block text-sm font-medium leading-6 text-gray-900'>
-        Price
-      </label>
-      <div className='relative mt-2 rounded-md shadow-sm'>
-        {prefix && (
-          <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
-            {prefix}
-          </div>
-        )}
-        <input
-          type='text'
-          name='price'
-          id='price'
-          className={`block w-full rounded-md border-0 py-1.5  pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6 ${
-            prefix ? 'pl-7' : 'pl-3'
-          }`}
-          placeholder={placeholder}
-        />
-        <div className='absolute inset-y-0 right-0 flex items-center'>
-          <label htmlFor='currency' className='sr-only'>
-            Currency
-          </label>
-          <select
-            id='currency'
-            name='currency'
-            className='h-full rounded-md border-0 bg-transparent py-0 pl-2 pr-7 text-gray-500 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm'
-          >
-            <option>USD</option>
-            <option>CAD</option>
-            <option>EUR</option>
-          </select>
+    <div className='relative mt-2 rounded-md shadow-sm '>
+      {prefix && (
+        <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
+          {prefix}
         </div>
-      </div>
+      )}
+      <input
+        type='text'
+        name={name}
+        id={id}
+        className={twMerge(input({ disabled }), prefix ? 'pl-7' : 'pl-3')}
+        placeholder={placeholder}
+        disabled={disabled}
+      />
     </div>
   )
 }
 
-export default Example
+export default Input
